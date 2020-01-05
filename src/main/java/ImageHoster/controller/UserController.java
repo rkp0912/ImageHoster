@@ -27,7 +27,7 @@ public class UserController {
     private ImageService imageService;
 
     private static Pattern passwordPattern =
-            Pattern.compile("((?=.*\\d)(?=.*[a-zA-Z])(?=.*[a-zA-Z0-9]).{3,255})");
+            Pattern.compile("((?=.*\\d)(?=.*[a-zA-Z])(?=.*[^a-z^A-Z^0-9]).{3,255})");
 
     //This controller method is called when the request pattern is of type 'users/registration'
     //This method declares User type and UserProfile type object
