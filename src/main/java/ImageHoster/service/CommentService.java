@@ -12,10 +12,7 @@ public class CommentService {
     @Autowired
     private CommentRepository commentRepository;
 
+    //This method call accepts the comment object and persists the same in the database.
     public void addComment(Comment newComment){ commentRepository.addComment(newComment); }
-
-    public List<Comment>  getCommentsByImage(Integer imageId){
-        return commentRepository.getCommentByImageId(imageId);
-    }
 
 }

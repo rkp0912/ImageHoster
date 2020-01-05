@@ -13,6 +13,13 @@ public class CommentRepository {
     @PersistenceUnit(unitName = "imageHoster")
     private EntityManagerFactory emf;
 
+    //This method accepts the comment object and persist the same in comments table in the imageHoster DB
+    //Create instance of an Entity Manager
+    //Create a transaction
+    //Begin the transaction
+    //Persist the comment object
+    //Commit the transaction if there are no exceptions
+    //Otherwise rollback the transaction.
     public Comment addComment(Comment comment){
         EntityManager em = emf.createEntityManager();
         EntityTransaction transaction =  em.getTransaction();
@@ -26,13 +33,6 @@ public class CommentRepository {
         }
 
         return comment;
-    }
-
-    public List<Comment> getCommentByImageId(Integer imageId){
-        EntityManager em = emf.createEntityManager();
-        TypedQuery<Comment> commentTypedQuery = em.createQuery("SELECT c FROM Comment c WHERE c.image =:imageId", Comment.class).setParameter("imageId", imageId);
-        List<Comment> resultList = commentTypedQuery.getResultList();
-        return resultList;
     }
 
 }
