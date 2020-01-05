@@ -29,8 +29,6 @@ public class ImageController {
     @Autowired
     private TagService tagService;
 
-    @Autowired
-    private CommentService commentService;
 
     //This method displays all the images in the user home page after successful login
     @RequestMapping("images")
@@ -168,7 +166,7 @@ public class ImageController {
           imageService.deleteImage(imageId);
           return "redirect:/images";
         } else {
-            String error = "Only the owner of the image can edit the image";
+            String error = "Only the owner of the image can delete the image";
             model.addAttribute("image", delImage);
             model.addAttribute("tags", delImage.getTags());
             model.addAttribute("deleteError", error);
